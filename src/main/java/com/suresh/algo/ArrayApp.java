@@ -3,7 +3,7 @@ package com.suresh.algo;
 public class ArrayApp {
 	
 	private long arr[];
-	long searchKeyPos;
+	int searchKeyPos;
 	
 	
 	public ArrayApp(long arr[]) {
@@ -13,11 +13,13 @@ public class ArrayApp {
 	
 	public  void arrayAppExample() {
 		
-		display();
+		
 		insert(45);insert(99);insert(55);
-		display();
 		System.out.println("Found at: "+search(55));
-		insert(66);
+		insert(66);insert(57);insert(22);insert(48);insert(12);
+		display();
+		remove(99);
+		remove(12);
 		display();
 		
 		
@@ -59,6 +61,7 @@ public class ArrayApp {
 			System.out.println("arr["+loopCounter+"]= "+l);
 			loopCounter++;
 		}
+		System.out.println("----------------------------------------");
 	}
 	
 	private boolean find(long searchKey) {
@@ -71,9 +74,21 @@ public class ArrayApp {
 		}
 		return false;
 	}
+	private void remove(long key) {
+		if(find(key)) {
+			for(int loopCounter=searchKeyPos-1;loopCounter<arr.length-1;loopCounter++) {
+				arr[loopCounter]=arr[loopCounter+1];
+				
+			}
+			arr[arr.length-1]=0;
+			
+		}else{
+			System.out.println("Invalid key ...");
+		}
+	}
 	
 	public static void main(String[] args) {
-		long arr[] = new long[4];
+		long arr[] = new long[8];
 	    
 		
 		
